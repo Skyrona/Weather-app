@@ -7,7 +7,7 @@ module.exports = {
         './src/index.scss'
     ],
     output: {
-        path: __dirname + "/dist",
+        path: __dirname + "/www/dist",
         filename: 'index.js'
     },
     module: {
@@ -56,11 +56,11 @@ module.exports = {
             host: 'localhost',
             port: 3000,
             files: [
-                'index.html',
+                'www/index.html',
             ],
             server: {
                 baseDir: [
-                    './'
+                    './www/'
                 ]
             }
         })
