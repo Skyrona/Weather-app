@@ -3,7 +3,6 @@ import { spinner } from "./spinner";
 import { displayCurrentWeather } from "./display_current_weather";
 import { displayForecastWeather } from "./display_forecast_weather";
 import { isDay } from "./is_day";
-import { getCity } from "./enter_town";
 
 let weather = {};
 export const getWeather = (weather) => {
@@ -51,9 +50,8 @@ const locationError = (PositionError) => {
     $(`#location`).append(
         $(`<button>`).text("Réessayer").attr({
             "class": "btn btn-danger btn-lg",
-        })
-    );
-    $(`.btn`).click(() => navigator.geolocation.getCurrentPosition(previsions, locationError))
+        }).click(() => navigator.geolocation.getCurrentPosition(locationSuccess, locationError))
+    )
 };
 
 export const buttonForecast = () => {
