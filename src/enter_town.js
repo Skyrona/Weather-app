@@ -1,17 +1,8 @@
-import $ from "jquery";
 import { locationSuccess, buttonForecast } from "./display_icon";
+import { spinner } from "./spinner";
 
 const getWeather = (city) => {
-    $("#current").empty().append(
-        $("<div>").attr({
-            "class": "spinner-border text-dark",
-            "role": "status",
-        }).append(
-            $("<span>").attr({
-                "class": "sr-only align-middle"
-            }).text("Loading...")
-        )
-    );
+    spinner();
     locationSuccess(city);
     buttonForecast();
 };

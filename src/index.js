@@ -1,6 +1,5 @@
 import $ from "jquery";
-import { displayIcon, buttonForecast} from "./display_icon";
-// import { buttonForecast } from "./button_forecast";
+import { displayIcon} from "./display_icon";
 
 let icon = "location_on";
 
@@ -10,4 +9,3 @@ $("#title").append(
 
 
 displayIcon(icon);
-// buttonForecast();
