@@ -9,13 +9,13 @@ const transformForm = (nameTown) => {
                 "class": "card-text",
                 "placeholder": nameTown,
             })
-            ).bind("keydown", (event) => 
-                enterTown(event)
-            )
+        ).bind("keydown", (event) =>
+            enterTown(event)
+        )
     );
 };
 
-export const displayCurrentWeather = (result) => {    
+export const displayCurrentWeather = (result) => {
     $("#current").empty().append(
         $("<div>").attr({}).append(
             $("<img>").attr({
@@ -29,7 +29,7 @@ export const displayCurrentWeather = (result) => {
                 "class": "card-body",
             }).append(
                 $("<p>").css("font-size", "20pt").text(result.location.name).click(
-                    () => { transformForm(result.location.name) }
+                    () => { transformForm(result.location.name); }
                 )
 
             )

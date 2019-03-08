@@ -5,8 +5,15 @@ import { displayForecastWeather } from "./display_forecast_weather";
 import { isDay } from "./is_day";
 
 let weather = {};
-export const getWeather = (weather) => {
-    return weather;
+
+export const buttonForecast = () => {
+    $("#button").append(
+        $("<button>").text("Météo pour la semaine").attr({
+            "class": "btn btn-warning",
+        }).bind("click", () => {
+            displayForecastWeather(weather);
+        })
+    );
 };
 
 const locationError = (PositionError) => {
@@ -16,7 +23,7 @@ const locationError = (PositionError) => {
         $("<button>").text("Réessayer").attr({
             "class": "btn btn-danger btn-lg",
         }).click(() => navigator.geolocation.getCurrentPosition(locationSuccess, locationError))
-    )
+    );
 };
 
 export const locationSuccess = (position) => {
@@ -37,20 +44,10 @@ export const locationSuccess = (position) => {
     });
 };
 
-export const buttonForecast = () => {
-    $("#button").append(
-        $("<button>").text("Météo pour la semaine").attr({
-            "class": "btn btn-warning",
-        }).bind("click", () => {
-            displayForecastWeather(weather);
-        })
-    );
-};
-
 export const displayIcon = (icon) => {
     $("#location").empty().append(
         $("<span>").attr({
-            "id": "location-on",
+            "id": icon,
             "class": "material-icons align-middle",
         }).text(
             icon
