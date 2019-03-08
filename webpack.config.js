@@ -1,14 +1,14 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
     entry: [
-        './src/index.js',
-        './src/index.scss'
+        "./src/index.js",
+        "./src/index.scss"
     ],
     output: {
         path: __dirname + "/www/dist",
-        filename: 'index.js'
+        filename: "index.js"
     },
     module: {
         rules: [
@@ -16,7 +16,7 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
-                    'babel-loader'
+                    "babel-loader"
                 ]
             },
             {
@@ -24,15 +24,15 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
+                    "css-loader",
+                    "sass-loader"
                 ]
             },
             {
                 test: /\.(png|jpg|gif|woff|woff2|ttf|svg|eot|truetype)$/,
                 use: [
                     {
-                        loader: 'file-loader',
+                        loader: "file-loader",
                         options: {
                         },
                     },
@@ -49,18 +49,18 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin(
             {
-                filename: 'index.css',
+                filename: "index.css",
             }
         ),
         new BrowserSyncPlugin({
-            host: 'localhost',
+            host: "localhost",
             port: 3000,
             files: [
-                'www/index.html',
+                "www/index.html",
             ],
             server: {
                 baseDir: [
-                    './www/'
+                    "./www/"
                 ]
             }
         })

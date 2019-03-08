@@ -1,5 +1,4 @@
 import $ from "jquery";
-import { buttonForecast } from "./display_icon";
 
 export const displayForecastWeather = (result) => {
     $("#button").empty();
