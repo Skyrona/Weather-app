@@ -16,16 +16,6 @@ export const buttonForecast = () => {
     );
 };
 
-const locationError = (PositionError) => {
-    displayIcon("location_off");
-
-    $("#location").append(
-        $("<button>").text("Réessayer").attr({
-            "class": "btn btn-danger btn-lg",
-        }).click(() => navigator.geolocation.getCurrentPosition(locationSuccess, locationError))
-    );
-};
-
 export const locationSuccess = (position) => {
     spinner();
     let methode = "/forecast.json";
@@ -42,6 +32,16 @@ export const locationSuccess = (position) => {
         error: (e) => {
         },
     });
+};
+
+const locationError = (PositionError) => {
+    displayIcon("location_off");
+
+    $("#location").append(
+        $("<button>").text("Réessayer").attr({
+            "class": "btn btn-danger btn-lg",
+        }).click(() => navigator.geolocation.getCurrentPosition(locationSuccess, locationError))
+    );
 };
 
 export const displayIcon = (icon) => {
