@@ -9,6 +9,27 @@ export const getWeather = (weather) => {
     return weather;
 }
 
+const locationError = (PositionError) => {
+    console.log("Error");
+    displayIcon("location_off");
+
+    $(`#location`).append(
+        $(`<button>`).text("Réessayer").attr({
+            "class": "btn btn-danger btn-lg",
+        }).click(() => navigator.geolocation.getCurrentPosition(locationSuccess, locationError))
+    )
+};
+
+export const buttonForecast = () => {
+    $("#button").append(
+        $("<button>").text("Météo pour la semaine").attr({
+            "class": "btn btn-warning",
+        }).bind("click", () => {
+            displayForecastWeather(weather);
+        })
+    );
+}
+
 export const displayIcon = (icon) => {
     $("#location").empty().append(
         $(`<span>`).attr({
@@ -42,24 +63,3 @@ export const locationSuccess = (position) => {
         },
     })
 };
-
-const locationError = (PositionError) => {
-    console.log("Error");
-    displayIcon("location_off");
-
-    $(`#location`).append(
-        $(`<button>`).text("Réessayer").attr({
-            "class": "btn btn-danger btn-lg",
-        }).click(() => navigator.geolocation.getCurrentPosition(locationSuccess, locationError))
-    )
-};
-
-export const buttonForecast = () => {
-    $("#button").append(
-        $("<button>").text("Météo pour la semaine").attr({
-            "class": "btn btn-warning",
-        }).bind("click", () => {
-            displayForecastWeather(weather);
-        })
-    );
-}
