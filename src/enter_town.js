@@ -3,11 +3,11 @@ import { locationSuccess, buttonForecast } from "./display_icon";
 
 const getWeather = (city) => {
     $("#current").empty().append(
-        $(`<div>`).attr({
+        $("<div>").attr({
             "class": "spinner-border text-dark",
             "role": "status",
         }).append(
-            $(`<span>`).attr({
+            $("<span>").attr({
                 "class": "sr-only align-middle"
             }).text("Loading...")
         )
@@ -21,8 +21,8 @@ export const enterTown = (event) => {
         event.preventDefault();
         getWeather(event.target.value);
     }
-}
+};
 
 export const getCity = (city) => {
     return city;
-}
+};

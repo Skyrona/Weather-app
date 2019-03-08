@@ -3,11 +3,11 @@ import $ from "jquery";
 export const spinner = () => {
     $("#location").empty();
     $("#current").empty().append(
-        $(`<div>`).attr({
+        $("<div>").attr({
             "class": "spinner-border text-dark",
             "role": "status",
         }).append(
-            $(`<span>`).attr({
+            $("<span>").attr({
                 "class": "sr-only align-middle"
             }).text("Loading...")
         )
