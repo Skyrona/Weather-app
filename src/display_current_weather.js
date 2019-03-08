@@ -11,19 +11,9 @@ const transformForm = (nameTown) => {
             })
             ).bind("keydown", (event) => 
                 enterTown(event)
-            ).bind("blur", () => {
-                revertForm(nameTown);
-            })
-    )
+            )
+    );
 };
-
-const revertForm = (nameTown) => {
-    $(".card-body:last-child").empty().append(
-        $("<p>").css("font-size", "20pt").text(nameTown).click(
-            () => { transformForm(nameTown) }
-        )
-    )
-}
 
 export const displayCurrentWeather = (result) => {    
     $("#current").empty().append(
