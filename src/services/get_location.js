@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { spinner } from "./spinner";
+import { spinner } from "../spinner";
 
 export const locationSuccess = (position) => {
     spinner();
