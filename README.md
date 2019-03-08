@@ -20,8 +20,10 @@ Install the dependencies with npm
 ~~~~
 npm install
 ~~~~
+
 To start the development server:
 ~~~~
 npm start
 ~~~~
+
 Normally your browser should open automatically, if it doesn't, simply navigate to localhost:3000 in your browser.
